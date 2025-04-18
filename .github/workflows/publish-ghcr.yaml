@@ -2,6 +2,9 @@ name: Docker Image CI for GHCR
 
 on:
   push:
+    paths:
+      - example/Dockerfile
+      - example/entrypoint.sh
 
 jobs:
   build_and_publish:
@@ -11,5 +14,5 @@ jobs:
       - name: Build and push the image
         run: |
           docker login --username svic321 --password ${{ secrets.GH_PAT }} ghcr.io
-          docker build . -t ghcr.io/svic321/hello_world-ghcr:latest
-          docker push ghcr.io/svic321/hello_world-ghcr:latest
+          docker build example -t ghcr.io/svic321/hello-svic321:latest
+          docker push ghcr.io/svic321/hello-svi321:latest
