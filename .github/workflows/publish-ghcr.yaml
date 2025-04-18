@@ -15,4 +15,4 @@ jobs:
         run: |
           docker login --username svic321 --password ${{ secrets.GH_PAT }} ghcr.io
           docker build example -t ghcr.io/svic321/hello-svic321:latest
-          docker push ghcr.io/svic321/hello-svi321:latest
+          docker push ghcr.io/svic321/hello-svic321:latest
