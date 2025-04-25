@@ -28,6 +28,12 @@ RUN apt-get update && apt-get install -y \
     command-not-found \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+
+RUN echo 'deb http://download.opensuse.org/repositories/home:/justkidding/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:justkidding.list
+RUN curl -fsSL https://download.opensuse.org/repositories/home:justkidding/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_justkidding.gpg > /dev/null
+
+RUN apt-get update && apt-get install -y ueberzugpp
+
 # Optional: Create a non-root user
 ARG USERNAME=svic22
 ARG USER_UID=1000
